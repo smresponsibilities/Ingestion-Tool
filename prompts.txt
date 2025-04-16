@@ -1,0 +1,39 @@
+Tool: Claude
+Purpose: Understanding the assignment, clarifying JWT confusion, backend scaffolding, and generating structured documentation.
+
+Prompts used:
+- Tell me in simple words, what this assignment is asking me to do. Explain each part.
+- Explain how JWT is supposed to work in this context.
+- What should I do if I'm using ClickHouse Cloud but the assignment asks for a JWT token?
+- Create a basic Express backend that helps me test the UI for the ClickHouse ingestion tool.
+- Generate mock data for the tables and columns
+- How should I structure the project to ensure clean separation between frontend and backend?
+- Can you help me outline the steps to implement a multistep wizard for the data ingestion flow?
+- Design a schema to handle different data types between ClickHouse and CSV files
+- Write unit tests for the ClickHouseConnection component with Jest and React Testing Library
+- Create a utility function to handle ClickHouse data types when exporting to CSV
+- Explain how to implement a proper error handling strategy in an Express.js backend
+- How should I approach data validation for CSV files before ingestion to ClickHouse?
+- Create documentation for the API endpoints following OpenAPI standards
+
+---
+
+Tool: GitHub Copilot
+Purpose: Helping with code implementation, refining UI components, and troubleshooting integration issues.
+
+Prompts used:
+- Create a React component for selecting ClickHouse columns with support for data type mapping
+- How do I implement file upload with preview functionality?
+- Refine this database connection logic to handle Cloud ClickHouse instances
+- Implement error handling for the CSV parsing function
+- Create a Material-UI stepper component with custom styling for our ingestion workflow
+- Write a helper function to sanitize table names according to ClickHouse requirements
+- Fix the CORS issue when uploading files to the Express backend
+- Implement a custom hook for managing form state in the connection component
+- How do I implement drag and drop file uploads with React?
+- Create a utility to convert ClickHouse data types to appropriate CSV formats
+- Write an efficient batch processing algorithm for large CSV files
+- Debug why the column selection isn't being properly passed to the backend
+- Help me implement JWT authentication for the ClickHouse Cloud connection
+- Create a responsive layout for the data preview table that handles large datasets
+- Implement local storage to save user connection preferences securely
