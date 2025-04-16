@@ -1,0 +1,84 @@
+const path = require('path');
+
+/**
+ * Get safe file name by removing any path information
+ * @param {string} filename - The original filename
+ * @returns {string} - Safe filename with only the basename
+ */
+const getSafeFileName = (filename) => {
+  // Extract just the basename, no directories
+  return path.basename(filename);
+};
+
+/**
+ * Format SQL query based on table name and columns
+ * @param {string} table - Table name
+ * @param {Array<string>} columns - Columns to include
+ * @returns {string} - Formatted SQL query
+ */
+const formatSqlQuery = (table, columns) => {
+  const columnsStr = columns && columns.length > 0 
+    ? columns.join(', ') 
+    : '*';
+  
+  return `SELECT ${columnsStr} FROM ${table} LIMIT 100`;
+};
+
+/**
+ * Parse CSV delimiter from string
+ * @param {string} delimiter - Delimiter string (e.g., 'comma', 'tab')
+ * @returns {string} - Actual delimiter character
+ */
+const parseDelimiter = (delimiter) => {
+  if (!delimiter) return ','; // Default to comma
+  
+  const delimiterMap = {
+    'comma': ',',
+    'tab': '\t',
+    'semicolon': ';',
+    'pipe': '|',
+    'space': ' '
+  };
+  
+  return delimiterMap[delimiter.toLowerCase()] || delimiter;
+};
+
+/**
+ * Generate a timestamp-based filename
+ * @param {string} baseName - Base file name
+ * @param {string} extension - File extension (without dot)
+ * @returns {string} - Generated filename
+ */
+const generateFilename = (baseName, extension) => {
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+  return `${baseName}-${timestamp}.${extension}`;
+};
+
+/**
+ * Sanitize a string to be used as a ClickHouse table name
+ * Removes invalid characters and ensures name starts with a letter
+ * @param {string} name - Input string to sanitize
+ * @returns {string} - Valid ClickHouse table name
+ */
+const sanitizeTableName = (name) => {
+  if (!name) return 'table';
+  
+  // Replace dashes, periods and other invalid characters with underscores
+  let sanitized = name.replace(/[-\s.]/g, '_');
+  
+  // Ensure the table name starts with a letter
+  if (!/^[a-zA-Z]/.test(sanitized)) {
+    sanitized = 'tbl_' + sanitized;
+  }
+  
+  return sanitized;
+};
+
+// Export all functions using a single module.exports statement
+module.exports = {
+  getSafeFileName,
+  formatSqlQuery,
+  parseDelimiter,
+  generateFilename,
+  sanitizeTableName
+};
