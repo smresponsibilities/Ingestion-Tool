@@ -2,7 +2,7 @@
 
 A web-based application that facilitates bidirectional data ingestion between ClickHouse databases and flat files (CSV).
 
-![Project Banner](https://via.placeholder.com/800x200?text=ClickHouse+%26+Flat+File+Ingestion+Tool)
+![alt text](assets/image.png)
 
 ## 🚀 Features
 
