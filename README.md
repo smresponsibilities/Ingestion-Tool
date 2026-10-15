@@ -9,7 +9,10 @@
 
 A web-based data engineering tool facilitating high-throughput, bidirectional data pipelines between ClickHouse columnar OLAP databases and flat CSV files. Features dynamic schema discovery, stream-based batch ingestion, column filtering, and completion audits.
 
-Live Project: [Ingestion Tool on Shivam Mahajan Portfolio](https://shivammahajan.com/projects/)
+![ClickHouse & Flat File Ingestion Dashboard](assets/image.png)
+*Figure 1: ClickHouse and CSV bidirectional pipeline configuration interface.*
+
+* **Portfolio Architecture & Details:** **[https://shivammahajan.com/projects/](https://shivammahajan.com/projects/)**
 
 ---
 
